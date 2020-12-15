@@ -1,17 +1,16 @@
 print('APP_Natural_Language')
-
+path = '/home/students/stalknia/Papka/apps/'
 import templates
 
 result = lambda text, res : templates.make(res[1], res[0], res[2:])
 
 import sys
-path = '\\'.join(sys.path[0].split('\\')[:-1])
 sys.path.insert(0, path)
-
 import app_template
 import return_template
 
-configfile = "natural_language.conf"
+
+configfile = "{}natural_language/natural_language.conf".format(path)
 aboutendpoint = "/about"
 healthendpoint = "/health"
 

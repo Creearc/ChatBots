@@ -1,17 +1,15 @@
 print('APP_Object')
-
+path = '/home/students/stalknia/Papka/apps/'
 import sparql
 
 objectt = lambda text, res : sparql.get(res[0], res[1])
 
 import sys
-path = '\\'.join(sys.path[0].split('\\')[:-1])
 sys.path.insert(0, path)
-
 import app_template
 import return_template
 
-configfile = "object.conf"
+configfile = "{}object/object.conf".format(path)
 aboutendpoint = "/about"
 healthendpoint = "/health"
 
