@@ -1,0 +1,45 @@
+version: '3'
+services:
+  backend:
+    restart: unless-stopped
+    image: super-docker:latest 
+    container_name: my-backend 
+    ports:
+      - '44219:44219' # mapping ports of the container to the "outside"
+    command: python ex5.2_backend.py # command that starts the app
+  frontend:
+    restart: unless-stopped
+    image: super-docker:latest
+    container_name: my-frontend
+    ports:
+      - '44210:8030'
+    command: python ex5.2_frontend.py
+  natural_language:
+    restart: unless-stopped
+    image: super-docker:latest
+    container_name: my-natural_language
+    ports:
+      - '44224:44224'
+    command: python apps/natural_language/app_natural_language.py
+  object:
+    restart: unless-stopped
+    image: super-docker:latest
+    container_name: my-object
+    ports:
+      - '44223:44223'
+    command: python apps/object/app_object.py
+  subject:
+    restart: unless-stopped
+    image: super-docker:latest
+    container_name: my-subject
+    ports:
+      - '44222:44222'
+    command: python apps/subject/app_subject.py
+  predicate:
+    restart: unless-stopped
+    image: super-docker:latest
+    container_name: my-predicate
+    ports:
+      - '44221:44221'
+    command: python apps/predicate/app_predicate.py
+
